@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import PostForm
 
 from .models import Post
 
@@ -16,3 +17,7 @@ class ListPosts(generic.ListView):
 # getting started test page
 def hello(request):
     return render(request, 'basic_forms/hello.html', {})
+
+def post_new(request):
+    form = PostForm()
+    return render(request, 'basic_forms/post_edit.html', {'form': form})
